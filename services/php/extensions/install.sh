@@ -723,6 +723,17 @@ if [[ -z "${EXTENSIONS##*,sdebug,*}" ]]; then
     fi
 fi
 
+if [[ -z "${EXTENSIONS##*,php_screw_plus,*}" ]]; then
+    echo "---------- Install php_screw_plus ----------"
+    isPhpVersionGreaterOrEqual 7 4
+    if [[ "$?" = "1" ]]; then
+            cp php_screw_plus.so /usr/local/php/lib/php/extensions/no-debug-non-zts-20190902/ \
+            && docker-php-ext-enable php_screw_plus
+        else
+            echo "---------- PHP Version>= 7.4----------"
+        fi
+fi
+
 if [ "${PHP_EXTENSIONS}" != "" ]; then
     apk del .build-deps \
     && docker-php-source delete
