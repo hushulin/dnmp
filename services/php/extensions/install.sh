@@ -727,8 +727,8 @@ if [[ -z "${EXTENSIONS##*,php_screw_plus,*}" ]]; then
     echo "---------- Install php_screw_plus ----------"
     isPhpVersionGreaterOrEqual 7 4
     if [[ "$?" = "1" ]]; then
-            ls -al /usr/local/php/lib/php/extensions/no-debug-non-zts-20190902/ \
-            && cp php_screw_plus.so /usr/local/php/lib/php/extensions/no-debug-non-zts-20190902/ \
+            ls -al /usr/local/lib/php/extensions/no-debug-non-zts-20190902/ \
+            && cp php_screw_plus.so /usr/local/lib/php/extensions/no-debug-non-zts-20190902/ \
             && docker-php-ext-enable php_screw_plus
         else
             echo "---------- PHP Version>= 7.4----------"
