@@ -13,7 +13,7 @@ services:
       - "${NGINX_HTTPS_HOST_PORT}:443"
     volumes:
       - ${SOURCE_DIR}:/www/:rw
-      - ${NGINX_SSL_CERTIFICATE_DIR}:/ssl:rw
+      - ${NGINX_SSL_CERTIFICATE_DIR}:/etc/letsencrypt/live:rw
       - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
       - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
       - ${NGINX_FASTCGI_PHP_CONF}:/etc/nginx/fastcgi-php.conf:ro
@@ -164,7 +164,7 @@ services:
 #    volumes:
 #       - ${SOURCE_DIR}:/www/:rw
 #       - ${OPENRESTY_CONFD_DIR}:/etc/nginx/conf.d/:ro
-#       - ${OPENRESTY_SSL_CERTIFICATE_DIR}:/ssl:rw
+#       - ${OPENRESTY_SSL_CERTIFICATE_DIR}:/etc/letsencrypt/live:rw
 #       - ${OPENRESTY_CONF_FILE}:/usr/local/openresty/nginx/conf/nginx.conf:ro
 #       - ${OPENRESTY_FASTCGI_PHP_CONF}:/usr/local/openresty/nginx/conf/fastcgi-php.conf:ro
 #       - ${OPENRESTY_CONF_FASTCGIPARAMS_FILE}:/usr/local/openresty/nginx/conf/fastcgi_params:ro
